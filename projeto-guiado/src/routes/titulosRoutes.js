@@ -10,10 +10,13 @@ router.post('/', controller.criaTitulo)
 router.get('/', controller.mostraTitulos)
 
 //Ler todos os títulos -> da Marvel -> GET -> find()
+router.get('/marvel', controller.mostraTitulosMarvel)
 
 //Ler todos os títulos -> da Pixar -> GET -> find()
+router.get('/pixar', controller.mostraTitulosPixar)
 
 //Ler todos os títulos -> da Ghibli -> GET -> find()
+router.get('/ghibli', controller.mostraTitulosGhibli)
 
 //Atualizar um título
 

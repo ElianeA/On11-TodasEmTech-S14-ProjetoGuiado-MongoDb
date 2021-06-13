@@ -29,7 +29,30 @@ const mostraTitulos = async(req, res) => {
     return res.status(200).json(titulos)
 }
 
+const mostraTitulosMarvel = async(req, res) => {
+    const titulos = await Titulo.find().populate('estudio')
+    const titulosFiltrado = titulos.filter(titulo => titulo.estudio.nome == "Marvel")
+
+    return res.status(200).json(titulosFiltrado)
+}
+
+const mostraTitulosPixar = async(req, res) => {
+    const titulos = await Titulo.find().populate('estudio')
+    const titulosFiltrado = titulos.filter(titulo => titulo.estudio.nome == "Pixar")
+
+    return res.status(200).json(titulosFiltrado)
+}
+
+const mostraTitulosGhibli = async(req, res) => {
+    const titulos = await Titulo.find().populate('estudio')
+    const titulosFiltrado = titulos.filter(titulo => titulo.estudio.nome == "Ghibli")
+
+    return res.status(200).json(titulosFiltrado)
+}
 module.exports = {
     criaTitulo,
-    mostraTitulos
+    mostraTitulos,
+    mostraTitulosMarvel,
+    mostraTitulosPixar,
+    mostraTitulosGhibli
 }
